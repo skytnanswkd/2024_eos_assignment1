@@ -28,35 +28,50 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightGreen,
-        title: Text("Eos_ToDolist"),
+        title: Text("Eos ToDoList"),
         leading: Icon(Icons.check_box_outlined),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-        Container(
+      body: Container(
+        color: Colors.lightGreen.withOpacity(0.3),
+        height: 200,
+        padding: EdgeInsets.all(20),
+        child: Row(
+          children: [
+            Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(width: 10,color: Colors.grey)
+              ),
+              child: Center(
+                child: Icon(
+                  Icons.person,
+                  size: 100,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('EOS'),
+              Text('장동호',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+              ,Text('한양대 소프트웨어학부 24학번 학생')
+            ],
+            ),
+          ],
 
-          color: Colors.orange,
-          width: 150,
-          height: 150,
-          decoration: BoxDecoration(
-            border: Border.all(width: 5),
-            color: Colors.blue,
-
-          ),
         ),
-        Container(
-          color: Colors.orange,
-          width: 150,
-          height: 150,
-        ),
-        Container(
-          color: Colors.orange,
-          width: 150,
-          height: 150,
-        )
-      ]),
-      bottomNavigationBar: BottomAppBar(child: Text('hello eos')),
+      ),
     );
   }
 }
