@@ -57,6 +57,7 @@ class MyHomePage extends StatelessWidget {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('EOS'),
               Text('장동호',
