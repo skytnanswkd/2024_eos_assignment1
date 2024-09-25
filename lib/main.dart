@@ -27,51 +27,53 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
-        title: Text("Eos ToDoList"),
-        leading: Icon(Icons.check_box_outlined),
-      ),
-      body: Container(
-        color: Colors.lightGreen.withOpacity(0.3),
-        height: 200,
-        padding: EdgeInsets.all(20),
-        child: Row(
-          children: [
-            Container(
-              width: 150,
-              height: 150,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(width: 10,color: Colors.grey)
-              ),
-              child: Center(
-                child: Icon(
-                  Icons.person,
-                  size: 100,
-                  color: Colors.grey,
+          backgroundColor: Color(0xFFA4C639).withOpacity(0.1),
+          title: Text("EOS ToDoList"),
+          leading: Image.asset('assets/images/eos_logo.jpeg')),
+      body: Column(
+        children: [
+          Container(
+            color: Colors.lightGreen.withOpacity(0.3),
+            height: 200,
+            padding: EdgeInsets.all(20),
+            child: Row(
+              children: [
+                Container(
+                  width: 140,
+                  height: 140,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(80),
+                      color: Colors.white,
+                      border: Border.all(width: 10, color: Colors.grey)),
+                  child:
+                      Center(child: Image.asset('assets/images/eos_logo.jpeg')),
                 ),
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('EOS'),
-              Text('장동호',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+                SizedBox(
+                  width: 35,
                 ),
-              )
-              ,Text('한양대 소프트웨어학부 24학번 학생')
-            ],
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '장동호',
+                      style: TextStyle(fontSize: 20, fontFamily: 'Pretenard'),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text('한양대 소프트웨어학부 24학번 학생')
+                  ],
+                ),
+              ],
             ),
-          ],
+          ),
+        Container(
+          height: 500,
+          color: Color(0xFFA4C639).withOpacity(0.1) ,
+        )
+        ],
 
-        ),
       ),
     );
   }
