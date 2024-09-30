@@ -33,7 +33,6 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            color: Colors.lightGreen.withOpacity(0.3),
             height: 200,
             padding: EdgeInsets.all(20),
             child: Row(
@@ -51,7 +50,8 @@ class MyHomePage extends StatelessWidget {
                 SizedBox(
                   width: 35,
                 ),
-                Column(
+                Expanded(
+                child :Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -64,7 +64,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                     Text('한양대 소프트웨어학부 24학번 학생')
                   ],
-                ),
+                ),),
               ],
             ),
           ),
