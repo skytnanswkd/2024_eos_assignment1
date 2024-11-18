@@ -12,6 +12,7 @@ class HomeScreens extends StatefulWidget {
 
 class _HomeScreensState extends State<HomeScreens> {
   List toDoLists = [];
+  final TextEditingController _textController = TextEditingController();
 
   @override
   void initState() {
@@ -19,6 +20,11 @@ class _HomeScreensState extends State<HomeScreens> {
     toDoLists.add("111111111");
     toDoLists.add("222222222");
     toDoLists.add("333333333");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -81,7 +87,7 @@ class _HomeScreensState extends State<HomeScreens> {
               ),
               Positioned(
                 top: 20,
-                left: MediaQuery.of(context).size.width /2 - 75,
+                left: MediaQuery.of(context).size.width / 2 - 75,
                 child: Container(
                   width: 150,
                   height: 30,
@@ -107,27 +113,67 @@ class _HomeScreensState extends State<HomeScreens> {
                       itemCount: toDoLists.length,
                       itemBuilder: (BuildContext context, int index) {
                         return ToDoItem(
-                            title: toDoLists[index],
-                            onDelete:() {
-                              setState(() {
-                                toDoLists.removeAt(index);
-                              });
-                            },);
+                          title: toDoLists[index],
+                          onDelete: () {
+                            setState(() {
+                              toDoLists.removeAt(index);
+                            });
+                          },
+                        );
                       }),
                 ),
               ),
               Positioned(
                   bottom: 30,
-                  right: 30,
-                  child: AddButton(onPressed: () {
-                    setState(() {
-                      toDoLists.add('+++++++');
-                    });
-                  }))
+                  right: 50,
+                  child: AddButton(onPressed: _showAddToDoDialog))
             ],
           )
         ],
       ),
     );
+  }
+
+  void _showAddToDoDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('할 일 추가'),
+            content: TextField(
+              controller: _textController,
+              decoration: InputDecoration(
+                  hintText: '할 일을 입력하세요',
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey)),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black))),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(
+                    '취소',
+                    style: TextStyle(color: Colors.black),
+                  )),
+              TextButton(
+                  onPressed: () {
+                    if (_textController.text.isNotEmpty) {
+                      setState(() {
+                        toDoLists.add(_textController.text);
+                        _textController.clear();
+                      });
+                      Navigator.of(context).pop();
+                    }
+                  },
+                  child: Text(
+                    '추가',
+                    style: TextStyle(color: Colors.black),
+                  )),
+            ],
+          );
+        });
   }
 }
