@@ -1,3 +1,4 @@
+import 'package:eos_todolist/screens/settings_screen.dart';
 import 'package:eos_todolist/widgets/add_button.dart';
 import 'package:eos_todolist/widgets/todo_item.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,9 +32,11 @@ class _HomeScreensState extends State<HomeScreens> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xFFA4C639).withOpacity(0.1),
-          title: Text("EOS ToDoList"),
-          leading: Image.asset('assets/images/eos_logo.jpeg')),
+        backgroundColor: Color(0xFFA4C639).withOpacity(0.1),
+        title: Text("EOS ToDoList"),
+        leading: Image.asset('assets/images/eos_logo.jpeg'),
+        actions: [IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingsScreen()));}, icon: Icon(Icons.settings_rounded))],
+      ),
       body: Column(
         children: [
           Container(
@@ -44,12 +47,14 @@ class _HomeScreensState extends State<HomeScreens> {
                 Container(
                   width: 140,
                   height: 140,
-                  decoration: BoxDecoration(
+                  //decoration: BoxDecoration(
+                  //   borderRadius: BorderRadius.circular(80),
+                  //   color: Colors.white,
+                  //   border: Border.all(width: 10, color: Colors.grey)),
+                  child: ClipRRect(
                       borderRadius: BorderRadius.circular(80),
-                      color: Colors.white,
-                      border: Border.all(width: 10, color: Colors.grey)),
-                  child:
-                      Center(child: Image.asset('assets/images/eos_logo.jpeg')),
+                      child: Image.asset('assets/images/kijae.jpeg',
+                          fit: BoxFit.cover)),
                 ),
                 SizedBox(
                   width: 35,
