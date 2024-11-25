@@ -53,7 +53,7 @@ class _HomeScreensState extends State<HomeScreens> {
                   //   border: Border.all(width: 10, color: Colors.grey)),
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(80),
-                      child: Image.asset('assets/images/kijae.jpeg',
+                      child: Image.asset('assets/images/dongho.webp',
                           fit: BoxFit.cover)),
                 ),
                 SizedBox(
